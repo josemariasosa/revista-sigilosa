@@ -1,0 +1,107 @@
+{
+  "entregas": [
+    {
+      "name": "Primera Entrega",
+      "batch_id": null,
+      "created_at": "2026-02-26T00:00:00Z"
+    }
+  ],
+  "tracks": [
+    {
+      "title": "5 Mouths",
+      "artist_name": "Fred Fresh",
+      "position": "A1",
+      "score": "✅",
+      "bpm": 126.46,
+      "tone": "Db",
+      "album_id": null,
+      "duration_seconds": null,
+      "entrega_id": 1,
+      "created_at": "2026-02-26T00:00:00Z"
+    },
+    {
+      "title": "Mihac",
+      "artist_name": "Bob Fitzgerald",
+      "position": "A2",
+      "score": "🟡",
+      "bpm": 129.25,
+      "tone": "Db",
+      "album_id": null,
+      "duration_seconds": null,
+      "entrega_id": 1,
+      "created_at": "2026-02-26T00:00:00Z"
+    },
+    {
+      "title": "The Burger King",
+      "artist_name": "Kem M",
+      "position": "B1",
+      "score": "✅",
+      "bpm": 129.83,
+      "tone": "Fm",
+      "album_id": null,
+      "duration_seconds": null,
+      "entrega_id": 1,
+      "created_at": "2026-02-26T00:00:00Z"
+    },
+    {
+      "title": "Work",
+      "artist_name": "Mind Phase One",
+      "position": "B2",
+      "score": "🔴",
+      "bpm": 122.00,
+      "tone": "Bb",
+      "album_id": null,
+      "duration_seconds": null,
+      "entrega_id": 1,
+      "created_at": "2026-02-26T00:00:00Z"
+    },
+    {
+      "title": "Tonque Crystal Moss",
+      "artist_name": "Chris Sattinger",
+      "position": "C1",
+      "score": "✅",
+      "bpm": 131.98,
+      "tone": "Db",
+      "album_id": null,
+      "duration_seconds": null,
+      "entrega_id": 1,
+      "created_at": "2026-02-26T00:00:00Z"
+    },
+    {
+      "title": "Conception",
+      "artist_name": "Astrocat & Kenny S.",
+      "position": "C2",
+      "score": "😈",
+      "bpm": 128.00,
+      "tone": "Fm",
+      "album_id": null,
+      "duration_seconds": null,
+      "entrega_id": 1,
+      "created_at": "2026-02-26T00:00:00Z"
+    },
+    {
+      "title": "Teacher",
+      "artist_name": "ESP",
+      "position": "D1",
+      "score": "🟡",
+      "bpm": 129.27,
+      "tone": "Cm",
+      "album_id": null,
+      "duration_seconds": null,
+      "entrega_id": 1,
+      "created_at": "2026-02-26T00:00:00Z"
+    },
+    {
+      "title": "The Gods Must Be Crazy",
+      "artist_name": "Deadly Buddha",
+      "position": "D2",
+      "score": "🔴",
+      "bpm": 140.00,
+      "tone": "Cm",
+      "album_id": null,
+      "duration_seconds": null,
+      "entrega_id": 1,
+      "created_at": "2026-02-26T00:00:00Z"
+    }
+  ]
+}
