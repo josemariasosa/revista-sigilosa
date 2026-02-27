@@ -44,16 +44,7 @@ pub fn app_routes(state: AppState) -> Router {
 }
 
 async fn home() -> Html<&'static str> {
-    Html(
-        r#"
-<h1>Sonido Sigiloso</h1>
-<ul>
-  <li><a href="/health">Health</a></li>
-  <li><a href="/admin">Admin</a></li>
-  <li><a href="/articles">Articles</a></li>
-</ul>
-"#,
-    )
+    Html(include_str!("../templates/home.html"))
 }
 
 async fn health() -> Json<serde_json::Value> {
