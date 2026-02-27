@@ -32,13 +32,18 @@ make test            # Ejecutar tests
 
 ## ¿Cómo funciona la inicialización automática?
 
-El sistema usa un patrón **fail-fast e idempotente** (inspirado en NEAR blockchain):
+El sistema es **granular e idempotente**:
 
-1. Al iniciar, verifica si existen entregas en la BD
-2. Si está vacía → Inserta los datos iniciales
-3. Si ya tiene datos → Se salta (no duplica)
+1. Al iniciar, lee `init_data.json` 
+2. Verifica cada entrega por nombre
+3. Si una entrega no existe → La crea con sus tracks
+4. Si ya existe → La salta (no duplica)
+5. **Puedes agregar nuevas entregas** al JSON sin recompilar
 
-Puedes reiniciar la app sin preocuparte de duplicar datos. Los datos iniciales solo se insertan la primera vez.
+**Durante desarrollo**: Edita `init_data.json` para agregar entregas (sin recompilación)
+**En alpha/producción**: Usa los endpoints API para agregar datos (persiste a la DB)
+
+Ver [DEVELOPMENT_WORKFLOW.md](DEVELOPMENT_WORKFLOW.md) para detalles completos.
 
 ## Gestión de Migraciones (Estilo Django)
 

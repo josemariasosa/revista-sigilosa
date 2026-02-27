@@ -1,18 +1,12 @@
-use std::str::FromStr;
+use sqlx::postgres::PgPoolOptions;
+use sqlx::{Pool, Postgres};
 
-use sqlx::sqlite::{SqliteConnectOptions, SqlitePoolOptions};
-use sqlx::{Pool, Sqlite};
-
-pub type DbPool = Pool<Sqlite>;
+pub type DbPool = Pool<Postgres>;
 
 pub async fn create_pool(database_url: &str) -> Result<DbPool, sqlx::Error> {
-    let options = SqliteConnectOptions::from_str(database_url)?
-        .create_if_missing(true)
-        .foreign_keys(true);
-
-    SqlitePoolOptions::new()
+    PgPoolOptions::new()
         .max_connections(5)
-        .connect_with(options)
+        .connect(database_url)
         .await
 }
 

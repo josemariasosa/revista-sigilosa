@@ -6,6 +6,19 @@
       "created_at": "2026-02-26T00:00:00Z"
     }
   ],
+  "albums": [
+    {
+      "title": "Neighbors",
+      "artist_id": null,
+      "release_year": 1995,
+      "label": "Strictly Rhythm",
+      "format": "2 x Vinyl, 12\", 33 ⅓ RPM",
+      "country": "US",
+      "genre": "House",
+      "style": "Deep House, Tech House",
+      "created_at": "2026-02-26T00:00:00Z"
+    }
+  ],
   "tracks": [
     {
       "title": "5 Mouths",
@@ -14,7 +27,7 @@
       "score": "✅",
       "bpm": 126.46,
       "tone": "Db",
-      "album_id": null,
+      "album_id": 1,
       "duration_seconds": null,
       "entrega_id": 1,
       "created_at": "2026-02-26T00:00:00Z"
@@ -26,7 +39,7 @@
       "score": "🟡",
       "bpm": 129.25,
       "tone": "Db",
-      "album_id": null,
+      "album_id": 1,
       "duration_seconds": null,
       "entrega_id": 1,
       "created_at": "2026-02-26T00:00:00Z"
@@ -38,7 +51,7 @@
       "score": "✅",
       "bpm": 129.83,
       "tone": "Fm",
-      "album_id": null,
+      "album_id": 1,
       "duration_seconds": null,
       "entrega_id": 1,
       "created_at": "2026-02-26T00:00:00Z"
@@ -50,7 +63,7 @@
       "score": "🔴",
       "bpm": 122.00,
       "tone": "Bb",
-      "album_id": null,
+      "album_id": 1,
       "duration_seconds": null,
       "entrega_id": 1,
       "created_at": "2026-02-26T00:00:00Z"
@@ -62,7 +75,7 @@
       "score": "✅",
       "bpm": 131.98,
       "tone": "Db",
-      "album_id": null,
+      "album_id": 1,
       "duration_seconds": null,
       "entrega_id": 1,
       "created_at": "2026-02-26T00:00:00Z"
@@ -74,7 +87,7 @@
       "score": "😈",
       "bpm": 128.00,
       "tone": "Fm",
-      "album_id": null,
+      "album_id": 1,
       "duration_seconds": null,
       "entrega_id": 1,
       "created_at": "2026-02-26T00:00:00Z"
@@ -86,7 +99,7 @@
       "score": "🟡",
       "bpm": 129.27,
       "tone": "Cm",
-      "album_id": null,
+      "album_id": 1,
       "duration_seconds": null,
       "entrega_id": 1,
       "created_at": "2026-02-26T00:00:00Z"
@@ -98,7 +111,7 @@
       "score": "🔴",
       "bpm": 140.00,
       "tone": "Cm",
-      "album_id": null,
+      "album_id": 1,
       "duration_seconds": null,
       "entrega_id": 1,
       "created_at": "2026-02-26T00:00:00Z"

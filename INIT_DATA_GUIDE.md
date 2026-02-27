@@ -2,10 +2,12 @@
 
 ## ✅ Sistema de Init Data Automático (Fail Fast & First)
 
+Tu aplicación utiliza un sistema **granular e idempotente**:
+
 - ✅ Se ejecuta automáticamente al iniciar la aplicación
-- ✅ **Solo corre si la base de datos está vacía** (fail fast if initialized)
-- ✅ Inserta los datos iniciales una sola vez
-- ✅ Si ya existen datos, se salta la importación
+- ✅ **Verifica cada entrega individualmente** - solo agrega las que faltan
+- ✅ Puedes agregar nuevas entregas a `init.rs` y solo las nuevas se insertarán
+- ✅ Si ya existen datos, se saltan automáticamente
 - ✅ **No requiere pasos manuales** para inicializar
 
 ### Cómo Funciona
@@ -14,22 +16,32 @@ Cuando ejecutas `cargo run` o `make run`, la aplicación:
 
 1. Crea la base de datos (si no existe)
 2. Ejecuta las migraciones
-3. **Verifica si hay entregas en la base de datos**
-4. Si está vacía → Inserta los datos iniciales automáticamente
-5. Si ya tiene datos → Continúa sin hacer nada
+3. **Lee `init_data.json`**
+4. **Verifica CADA entrega por nombre**
+5. Si no existe → La crea con sus tracks
+6. Si ya existe → La salta
+7. Continúa con el servidor
 
+**Primera vez:**
 ```
-🔧 Initializing database with initial data...
-✅ Initial data created successfully!
-   → 1 entrega created
-   → 8 tracks created
+🔧 Checking initial data...
+  ✅ Created entrega: Primera Entrega
+     → Added 8 tracks
+
+✅ Initial data initialized successfully!
+   → 1 entrega(s) created
+   → 8 track(s) created
 ```
 
-O si ya está inicializada:
+**Si agregas una nueva entrega a init.rs:**
+```
+🔧 Checking initial data...
+  ⏭️  Entrega 'Primera Entrega' already exists, skipping
+  ✅ Created entrega: Segunda Entrega
+     → Added 6 tracks
+```
 
-```
-⏭️  Database already initialized, skipping init data
-```
+📖 **Ver [DEVELOPMENT_WORKFLOW.md](DEVELOPMENT_WORKFLOW.md) para el workflow completo**
 
 ## ✅ Cambios Realizados
 
@@ -201,13 +213,13 @@ make importData
 - **Reset completo**: Usa `make resetDb` seguido de `make run`
 
 ### 2. Agregar Más Datos
-- **Opción A (Código)**: Modifica [src/init.rs](src/init.rs) y agrega más datos al array
-- **Opción B (JSON)**: Usa el endpoint `/import/json` o `make importData` con nuevos datos en [init_data.json](init_data.json)
+- **Opción A (JSON - Recomendado)**: Modifica [init_data.json](init_data.json) y agrega nuevas entregas y tracks
+- **Opción B (JSON Import)**: Usa el endpoint `/import/json` o `make importData` con nuevos datos
 - **Opción C (API)**: Usa los endpoints REST individuales
 
 ### 3. Desarrollo
 - **Migraciones**: Para cambios de schema, siempre crea una nueva migración en `migrations/`
-- **Init Data**: Mantén los datos iniciales en `src/init.rs` para que siempre estén disponibles
+- **Init Data**: Edita `init_data.json` para agregar entregas y tracks iniciales (no requiere recompilación)
 - **JSON Import**: Usa `/import/json` para cargas masivas adicionales
 
 ### 4. Ver Migraciones
@@ -253,9 +265,9 @@ make resetDb         # Resetear la base de datos
 
 ## 🔧 Archivos Clave
 
-- [src/init.rs](src/init.rs) - Lógica de inicialización automática
-- [init_data.json](init_data.json) - Datos de ejemplo para importación manual
-- [scripts/import_seed.sh](scripts/import_seed.sh) - Script de importación manual
+- [src/init.rs](src/init.rs) - Lógica de inicialización automática (lee del JSON)
+- [init_data.json](init_data.json) - **Datos iniciales** - edita este archivo para agregar entregas/tracks
+- [scripts/import_seed.sh](scripts/import_seed.sh) - Script de importación manual adicional
 - [scripts/show_migrations.sh](scripts/show_migrations.sh) - Script para mostrar migraciones
 - [Makefile](Makefile) - Comandos útiles para desarrollo
 - [migrations/](migrations/) - Directorio de migraciones SQL

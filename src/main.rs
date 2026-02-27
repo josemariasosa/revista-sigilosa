@@ -18,7 +18,9 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     ensure_articles_dir(&articles_dir).await?;
     println!("✓ Articles directory is readable: {}", articles_dir.display());
 
-    let pool = create_pool("sqlite://sonido_sigiloso.db").await?;
+    let database_url = std::env::var("DATABASE_URL")
+        .unwrap_or_else(|_| "postgresql://postgres:postgres@localhost/sonido_sigiloso".to_string());
+    let pool = create_pool(&database_url).await?;
     run_migrations(&pool).await?;
 
     // Initialize with initial data (only runs if database is empty)

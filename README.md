@@ -2,9 +2,52 @@
 
 Backend oficial de la revista musical **Sonido Sigiloso**.
 
-Este sistema almacena, organiza y expone toda la información musical de la revista mediante una base de datos SQL local, permitiendo que los artículos se rendericen con información en tiempo real.
+Este sistema almacena, organiza y expone toda la información musical de la revista mediante una base de datos PostgreSQL, permitiendo que los artículos se rendericen con información en tiempo real.
 
-El sistema está diseñado como un binario único ejecutable, sin dependencias externas como Docker o servidores remotos.
+---
+
+## Quick Start
+
+### Using Docker (Recommended)
+
+```bash
+# Start PostgreSQL database
+make up
+
+# Run the application (in another terminal)
+make run
+```
+
+The app will automatically:
+- Connect to PostgreSQL
+- Run all migrations
+- Load initial data from `init_data.json`
+- Start the server at `http://localhost:3000`
+
+### Using Local PostgreSQL (Homebrew)
+
+If you already have PostgreSQL installed with Homebrew:
+
+```bash
+# Make sure PostgreSQL is running
+brew services start postgresql@16
+
+# Create the database (first time only)
+createdb sonido_sigiloso
+
+# Set environment variable (or use .env file)
+export DATABASE_URL=postgresql://postgres:postgres@localhost/sonido_sigiloso
+
+# Run the application
+make run
+```
+
+### Stop
+
+```bash
+# Stop Docker PostgreSQL
+make down
+```
 
 ---
 
@@ -14,10 +57,10 @@ Sonido Sigiloso es una revista viva.
 
 No es un sitio estático. Es un sistema dinámico donde:
 
-- La información musical vive en una base de datos estructurada
+- La información musical vive en una base de datos estructurada (PostgreSQL)
 - Los artículos consumen esa información en tiempo real
 - La revista evoluciona con cada nuevo batch de vinilos
-- El sistema corre completamente en local
+- El sistema puede correr completamente en local o en Docker
 - La simplicidad es prioritaria
 - La escalabilidad es posible sin rediseñar la arquitectura
 

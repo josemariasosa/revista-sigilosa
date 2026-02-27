@@ -15,6 +15,11 @@ pub struct Album {
     pub title: String,
     pub artist_id: Option<i64>,
     pub release_year: Option<i64>,
+    pub label: Option<String>,
+    pub format: Option<String>,
+    pub country: Option<String>,
+    pub genre: Option<String>,
+    pub style: Option<String>,
     pub created_at: String,
 }
 
@@ -53,6 +58,11 @@ pub struct NewAlbum {
     pub title: String,
     pub artist_id: Option<i64>,
     pub release_year: Option<i64>,
+    pub label: Option<String>,
+    pub format: Option<String>,
+    pub country: Option<String>,
+    pub genre: Option<String>,
+    pub style: Option<String>,
     pub created_at: String,
 }
 
